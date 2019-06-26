@@ -11,12 +11,6 @@ from handFeature import HandFeatures
 
 application = Flask(__name__)
 
-embeddingFilePath= 'glove.6b.100d.txt'
-modelDescPath= 'model_FNC.json' #model description json path
-modelWeightPath= 'weights-improvement-04-0.85.hdf5' #model wieths path
-hf= HandFeatures()
-embed_= Embed(embeddingFilePath)
-model= load_model(modelDescPath, modelWeightPath)
 
 @application.route('/predict', methods= ['POST'])
 
@@ -67,6 +61,14 @@ def load_model(fp,weights):
     loaded_model.load_weights(weights)
     loaded_model._make_predict_function() #don't remove this untill this bug is solved officially
     return loaded_model
+
+
+embeddingFilePath= 'glove.6b.100d.txt'
+modelDescPath= 'model_FNC.json' #model description json path
+modelWeightPath= 'weights-improvement-04-0.85.hdf5' #model wieths path
+hf= HandFeatures()
+embed_= Embed(embeddingFilePath)
+model= load_model(modelDescPath, modelWeightPath)
 
 if __name__=='__main__':
     application.debug= True
