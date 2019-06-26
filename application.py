@@ -5,15 +5,21 @@ from keras.models import model_from_json
 from glove_embeddings import Embed
 from handFeature import HandFeatures
 
-model= None
-embed_= None
-hf= None
+
 
 
 
 application = Flask(__name__)
 
+embeddingFilePath= 'glove.6b.100d.txt'
+modelDescPath= 'model_FNC.json' #model description json path
+modelWeightPath= 'weights-improvement-04-0.85.hdf5' #model wieths path
+hf= HandFeatures()
+embed_= Embed(embeddingFilePath)
+model= load_model(modelDescPath, modelWeightPath)
+
 @application.route('/predict', methods= ['POST'])
+
 def predict():
     global model, embed_
     if model==None:
@@ -65,10 +71,5 @@ def load_model(fp,weights):
 if __name__=='__main__':
     application.debug= True
     application.run()
-    embeddingFilePath= 'glove.6b.100d.txt'
-    modelDescPath= 'model_FNC.json' #model description json path
-    modelWeightPath= 'weights-improvement-04-0.85.hdf5' #model wieths path
-    hf= HandFeatures()
-    embed_= Embed(embeddingFilePath)
-    model= load_model(modelDescPath, modelWeightPath)
+    
     
