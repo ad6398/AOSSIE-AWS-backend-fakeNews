@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 import numpy as np 
 import pandas as pd
 from keras.models import model_from_json 
-from glove_embeddings import Embed
-from handFeature import HandFeatures
+from ML.glove_embeddings import Embed
+from ML.handFeature import HandFeatures
 
 model= None
 embed_= None
@@ -29,7 +29,7 @@ def predict():
     prediciton = model.predict(feat)
     class_= get_classes(prediciton)
     return jsonify({'prediciton': class_})
-    
+
 
 def get_features(headline, body):
     global embed_
@@ -63,9 +63,9 @@ def load_model(fp,weights):
     return loaded_model
 
 if __name__=='__main__':
-    embeddingFilePath= 'glove.6b.100d.txt'
-    modelDescPath= 'model_FNC.json' #model description json path
-    modelWeightPath= 'weights-improvement-04-0.85.hdf5' #model wieths path
+    embeddingFilePath= r'files/glove.6B.100d.txt'
+    modelDescPath= r'ML/model_FNC.json' #model description json path
+    modelWeightPath= r'ML/weights-improvement-04-0.85.hdf5' #model wieths path
     hf= HandFeatures()
     embed_= Embed(embeddingFilePath)
     model= load_model(modelDescPath, modelWeightPath)

@@ -1,4 +1,4 @@
-from preprocess import Preprocess
+from ML.preprocess import Preprocess
 import numpy as np
 from tqdm import tqdm
 class HandFeatures(Preprocess):

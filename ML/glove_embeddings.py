@@ -1,6 +1,6 @@
 
 import numpy as np
-from preprocess import Preprocess
+from ML.preprocess import Preprocess
 from tqdm import tqdm
 from os import path
 import wget
@@ -13,7 +13,7 @@ class Embed:
             exit
         if(path.exists(embedFilePath)== False):
             print("downloading glove")
-            embedFilePath= wget.download("https://adnlp.s3.ap-south-1.amazonaws.com/glove.6B.100d.txt")
+            embedFilePath= wget.download("https://adnlp.s3.ap-south-1.amazonaws.com/glove.6B.100d.txt", out= embedFilePath)
             print("glove downloaded")
         print("glove 100-D embeddings loading.....")
         self.glove_dict = dict()
