@@ -13,10 +13,10 @@ class Embed:
             exit
         if(path.exists(embedFilePath)== False):
             print("downloading glove")
-            embedFilePath= wget.download("https://adnlp.s3.ap-south-1.amazonaws.com/glove.6B.100d.txt", out= embedFilePath)
+            embedFilePath= wget.download("https://adnlp.s3.ap-south-1.amazonaws.com/glove.6B.100d.txt", out= r"files/")
             print("glove downloaded")
         print("glove 100-D embeddings loading.....")
-        self.glove_dict = dict()
+        self.glove_dict = dict()cd
         f = open(embedFilePath,encoding="utf8")
         for line in f:
             values = line.split()
