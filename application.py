@@ -64,10 +64,10 @@ def load_model(fp,weights):
 
 if __name__=='__main__':
     embeddingFilePath= r'files/glove.6B.100d.txt'
-    modelDescPath= r'ML/model_FNC.json' #model description json path
-    modelWeightPath= r'ML/weights-improvement-04-0.85.hdf5' #model wieths path
+    modelDescPath= r'ML/model_FNC.json'             #model description json path
+    modelWeightPath= r'ML/weights-improvement-04-0.85.hdf5'             #model wieths path
     hf= HandFeatures()
     embed_= Embed(embeddingFilePath)
     model= load_model(modelDescPath, modelWeightPath)
-    application.debug= True
-    application.run()
+    application.debug= False
+    application.run(host="0.0.0.0", port= 80)
