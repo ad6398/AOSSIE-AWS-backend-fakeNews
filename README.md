@@ -1,2 +1,2 @@
 # AOSSIE-AWS-backend-fakeNews
-trial api for hosting on Heroku for gsoc 
+trial repo for api hosting on AWS for gsoc 
