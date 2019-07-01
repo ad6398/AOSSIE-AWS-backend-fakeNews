@@ -70,4 +70,4 @@ if __name__=='__main__':
     embed_= Embed(embeddingFilePath)
     model= load_model(modelDescPath, modelWeightPath)
     application.debug= False
-    application.run()
+    application.run(port= 8091, host="0.0.0.0" )
