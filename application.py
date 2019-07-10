@@ -71,3 +71,4 @@ if __name__=='__main__':
     model= load_model(modelDescPath, modelWeightPath)
     application.debug= False
     application.run(port= 8091, host="0.0.0.0")
+    # run application.py on AWS instance
